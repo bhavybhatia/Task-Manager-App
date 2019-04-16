@@ -1,0 +1,17 @@
+<h1> Hey, This is task Page </h1>
+
+<p> All Your Tasks : </p>
+<br>
+<ul>
+  {% for each_task in all_tasks %}
+    <li>{{each_task.content}}</li>
+    {% endfor %}
+  </ul>
+
+<p>________________________________________________</p>
+
+<form action="/addTask/" method="post">
+  {% csrf_token  %}
+  <input type="text" name='content'/>
+  <input type="submit" value='Add'/>
+</form>
