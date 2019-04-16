@@ -11,3 +11,8 @@ def addTask(request):
     new_item=taskItem(content=request.POST['content'])
     new_item.save()
     return HttpResponseRedirect('/task/')
+
+def deleteTask(request,todo_id):
+    delete_item=taskItem.objects.get(id=todo_id)
+    delete_item.delete()
+    return HttpResponseRedirect('/task/')
